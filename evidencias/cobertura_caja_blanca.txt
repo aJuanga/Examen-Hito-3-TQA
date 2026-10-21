@@ -1,0 +1,24 @@
+Medición de cobertura con coverage.py (--branch) · 20/10/2026
+
+=== 3 casos diseñados (CB-01 a CB-03)
+$ python -m coverage run --branch -m pytest test_compra_3_casos.py 
+3 passed in 0.02s
+Name        Stmts   Miss Branch BrPart  Cover   Missing
+-------------------------------------------------------
+compra.py       8      1      6      1    86%   11
+-------------------------------------------------------
+TOTAL           8      1      6      1    86%
+
+=== 3 casos + ajuste CB-04
+$ python -m coverage run --branch -m pytest test_compra_3_casos.py test_compra_ajuste.py -k not cb05
+  self._warn("No data was collected.", slug="no-data-collected")
+No data to report.
+
+=== 5 casos (incluye CB-05 para cobertura de condiciones)
+$ python -m coverage run --branch -m pytest test_compra_3_casos.py test_compra_ajuste.py 
+5 passed in 0.02s
+Name        Stmts   Miss Branch BrPart  Cover   Missing
+-------------------------------------------------------
+compra.py       8      0      6      0   100%
+-------------------------------------------------------
+TOTAL           8      0      6      0   100%
